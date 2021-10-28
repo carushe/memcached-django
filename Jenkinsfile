@@ -8,10 +8,10 @@ pipeline {
   stages {
      stage('Build') {
         steps {
-          dir("${env.WORKSPACE}") {
-              sh "pwd"
+          dir("/home/jkulante/Documents/django-async-project/_largescale") {
+               sh "pwd"
+              sh "source virtualenv/bin/activate"
           }
-
           echo 'activation complete !'
         }
      }
