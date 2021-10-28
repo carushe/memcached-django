@@ -13,7 +13,7 @@ pipeline {
                  if [! -d "venv" ]; then
                     python3 -m venv venv
                  fi
-                 . venv/bin/activate
+                 sudo . venv/bin/activate
                  pip install -r requirements.txt --download-cached=/tmp/$JOB_NAME
                 """
              echo "activation complete !"
