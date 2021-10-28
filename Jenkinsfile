@@ -1,3 +1,5 @@
+ #!/usr/bin/env groovy
+
 pipeline {
   agent any
   options {
@@ -16,7 +18,7 @@ pipeline {
          sh 'python manage test'
        }
      }
-     state('deploy') {
+     stage('deploy') {
        steps {
          echo 'This is the deployment'
        }
