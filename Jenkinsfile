@@ -12,17 +12,17 @@ pipeline {
 
              sh "source virtualenv/bin/activate"
 
-          echo 'activation complete !'
+             echo "activation complete !"
         }
      }
      stage('Test') {
        steps {
-         sh 'python manage test'
+         sh "$PYTHON_INTERPRETER manage test"
        }
      }
      stage('deploy') {
        steps {
-         echo 'This is the deployment'
+         echo "This is the deployment"
        }
      }
   }
