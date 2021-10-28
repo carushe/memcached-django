@@ -10,7 +10,7 @@ pipeline {
         steps {
              sh "cd /home/jkulante/Documents/django-async-project/"
 
-             sh "source ${VENV_PATH}/bin/activate"
+             sh "source $VENV_PATH/bin/activate"
 
              echo "activation complete !"
         }
