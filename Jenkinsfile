@@ -4,13 +4,15 @@ pipeline {
   options {
     skipStagesAfterUnstable()
   }
-  stages {
-  environment {
+    environment {
       HOME_DIR="/home/jkulante"
       VENV_PATH="${HOME_DIR}/Documents/django-async-project/virtenv"
       PYTHON_INTERPRETER="${VENV_PATH}/bin/python3"
 
    }
+
+  stages {
+
      stage('Build') {
         steps {
              sh "cd /home/jkulante/Documents/django-async-project/"
