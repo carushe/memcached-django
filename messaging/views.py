@@ -35,8 +35,8 @@ class PublisherListView(ListView):
 # Create your views here.
 @cache_control(max_age=400, private=True)
 @vary_on_headers('user-agent')
-@cache_page(40 * 7, cache='default')
-async def home(request):
+# @cache_page(40 * 7, cache='default')
+def home(request):
     now = datetime.datetime.now()
     cache.set('key', 'Initial Value')
     html = '<html><body>It is now %s.</body><html>' % now
