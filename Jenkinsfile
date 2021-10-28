@@ -8,8 +8,8 @@ pipeline {
   stages {
      stage('Build') {
         steps {
-          dir('$HOME/Documents/django-async-project/') {
-              sh 'source virtualenv/bin/activate'
+          dir("${env.WORKSPACE}") {
+              sh "pwd"
           }
 
           echo 'activation complete !'
