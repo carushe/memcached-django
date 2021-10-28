@@ -8,8 +8,9 @@ pipeline {
   stages {
      stage('Build') {
         steps {
-             sh "cd /home/jkulante/Documents/django-async-project/_largescale/"
-             sh "source /home/jkulante/Documents/django-async-project/_largescale/virtualenv/bin/activate"
+             sh "cd /home/jkulante/Documents/django-async-project/"
+
+             sh "source virtualenv/bin/activate"
 
           echo 'activation complete !'
         }
