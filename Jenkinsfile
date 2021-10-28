@@ -1,0 +1,25 @@
+pipeline {
+  agent any
+  options {
+    skipStagesAfterUnstable()
+  }
+  stages {
+     stage('Build') {
+        steps {
+          sh 'cd ~/Documents/django-async-project/'
+          sh 'source virtualenv/bin/activate'
+          echo 'activation complete !'
+        }
+     }
+     stage('Test') {
+       steps {
+         sh 'python manage test'
+       }
+     }
+     state('deploy') {
+       steps {
+         echo 'This is the deployment'
+       }
+     }
+  }
+}
