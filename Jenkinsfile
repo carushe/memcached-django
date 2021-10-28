@@ -8,13 +8,21 @@ pipeline {
   stages {
      stage('Build') {
         steps {
-             sh "cd /home/jkulante/Documents/django-async-project/"
+             sh """
+                 PATH=$WORKSPACE/venv/bin:/usr/local/bin:$PATH
+                 if [! -d "venv" ]; then
+                    python3 -m venv venv
+                 fi
+                 . venv/bin/activate
+                 pip install -r requirements.txt --download-cached=/tmp/$JOB_NAME
+                """
              echo "activation complete !"
         }
      }
      stage('Test') {
        steps {
-         sh "$PYTHON_INTERPRETER manage test"
+         sh """. venv/bin/activate && python3 manage.py test
+            """
        }
      }
      stage('deploy') {
